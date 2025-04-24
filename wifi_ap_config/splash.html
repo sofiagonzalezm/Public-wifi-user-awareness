@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wi-Fi Gratis del Aeropuerto Adolfo Suárez Madrid–Barajas</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* Reset and basic styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Open Sans', sans-serif;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      background: url("/images/800px-Barajas_Airport_(Madrid)_(4684560779).jpg") no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    .container {
+      max-width: 320px;
+      max-height: 75vh; 
+      margin: 2rem auto;
+      background: rgba(255,255,255, 0.9); 
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      padding: 1.5rem;
+      text-align: center;
+      overflow-y: auto;
+    }
+
+    /* Title / Subtitle */
+    h1 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 0.5rem;
+    }
+    p.subtitle {
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 1rem;
+      line-height: 1.4;
+    }
+
+    /* Questions layout */
+    .question {
+      text-align: left;
+      font-weight: 600;
+      margin: 1rem 0 0.5rem 0;
+      color: #333;
+    }
+    .survey label {
+      display: block;
+      text-align: left;
+      margin: 0.25rem 0;
+      color: #444;
+    }
+    .survey input[type="radio"], .survey input[type="checkbox"] {
+      margin-right: 8px;
+      transform: scale(1.1);
+    }
+
+    /* Terms & Conditions */
+    .terms {
+      margin-top: 1rem;
+      text-align: left;
+      color: #333;
+      font-size: 0.9rem;
+    }
+    .terms input {
+      margin-right: 5px;
+      transform: scale(1.2);
+    }
+
+    /* Submit Button */
+    .accept-btn {
+      display: block;
+      width: 100%;
+      margin-top: 1.2rem;
+      padding: 0.8rem;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      background: #1cb841;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    .accept-btn:hover:not(:disabled) {
+      background: #18a238;
+    }
+    .accept-btn:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+
+    /* Footer */
+    .footer {
+      font-size: 0.75rem;
+      color: #999;
+      margin-top: 1rem;
+    }
+  </style>
+
+<script>
+    function checkFormCompletion() {
+
+      const radioAnswered = document.querySelectorAll('input[type="radio"]:checked').length;
+      const termsChecked = document.getElementById('termsCheckbox').checked;
+      const submitButton = document.getElementById('accept-btn');
+
+
+      if (radioAnswered >= 5 && termsChecked) {
+        submitButton.removeAttribute("disabled");
+      } else {
+        submitButton.setAttribute("disabled", true);
+      }
+    }
+  </script>
+
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Wi-Fi Gratis del Aeropuerto Adolfo Suárez Madrid–Barajas</h1>
+    <p class="subtitle">
+      Para continuar, responde estas preguntas y acepta los términos y condiciones.
+    </p>
+
+    <form method="GET" action="$authaction" oninput="checkFormCompletion()">
+      <input type="hidden" name="tok" value="$tok">
+      <input type="hidden" name="redir" value="$redir">
+
+      <!-- Q1 -->
+      <div class="survey">
+        <div class="question">1. Edad (número):</div>
+        <input type="number" name="age" min="1" max="10000000" placeholder="   Tu edad">
+      </div>
+
+      <!-- Q2 -->
+      <div class="survey">
+        <div class="question">2. Género:</div>
+        <label><input type="radio" name="gender" value="Mujer"> Mujer</label>
+        <label><input type="radio" name="gender" value="Hombre"> Hombre</label>
+        <label><input type="radio" name="gender" value="Otro"> Otro</label>
+      </div>
+
+      <!-- Q3 -->
+      <div class="survey">
+        <div class="question">3. ¿Eres turista?</div>
+        <label><input type="radio" name="tourist" value="Si"> Sí</label>
+        <label><input type="radio" name="tourist" value="No"> No</label>
+      </div>
+
+      <!-- Q4 -->
+      <div class="survey">
+        <div class="question">4. ¿Para qué sueles utilizar el Wi-Fi público?</div>
+        <label><input type="radio" name="purpose" value="trabajo"> Trabajo/Estudio</label>
+        <label><input type="radio" name="purpose" value="entretenimiento"> Entretenimiento</label>
+        <label><input type="radio" name="purpose" value="otros"> Otros</label>
+      </div>
+
+      <!-- Q5 -->
+      <div class="survey">
+        <div class="question">5. ¿Eres consciente de los riesgos de usar Wi-Fi público?</div>
+        <label><input type="radio" name="awareness" value="si"> Sí</label>
+        <label><input type="radio" name="awareness" value="no"> No</label>
+      </div>
+
+      <!-- Q6: multi-check example -->
+      <div class="survey">
+        <div class="question">6. ¿Tomas alguna precaución al conectarte a una red Wi-Fi pública? (elige las que correspondan)</div>
+        <label><input type="checkbox" name="precaution[]" value="No"> Ninguna</label>
+        <label><input type="checkbox" name="precaution[]" value="VPN"> Uso VPN</label>
+        <label><input type="checkbox" name="precaution[]" value="Cuentas-sensibles"> Evito cuentas sensibles</label>
+        <label><input type="checkbox" name="precaution[]" value="Sitios-confianza"> Sitios de confianza</label>
+      </div>
+
+      <!-- Q7 -->
+      <div class="survey">
+        <div class="question">7. ¿Confías en las redes Wi-Fi gratuitas en lugares públicos?</div>
+        <label><input type="radio" name="trust" value="Si"> Sí, me conecto sin preocupación</label>
+        <label><input type="radio" name="trust" value="A veces"> A veces</label>
+        <label><input type="radio" name="trust" value="No"> No, las evito</label>
+      </div>
+
+      <!-- Terms & Conditions -->
+      <div class="terms">
+        <label>
+          <input type="checkbox" id="termsCheckbox"> 
+          Acepto los <a href="/terms.html" target="_blank">Términos y Condiciones</a>.
+        </label>
+      </div>
+
+      <!-- Submit -->
+      <button type="submit" id="accept-btn" class="accept-btn" disabled>Acepto y Continuar</button>
+    </form> 
+
+    <div class="footer">
+      &copy; 2025 Wi-Fi del Aeropuerto Adolfo Suárez Madrid–Barajas.
+    </div>
+  </div>
+
+</body>
+</html>
